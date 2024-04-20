@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block body %}
+<h1 align="center">Transactions</h1>
+<ul class="list-group list-group-flush" id="trades">
+  {% for trade in trades %}
+  <li class="list-group-item">
+    {{ Stock.query.get(trade.stock_id).symbol }} - {{ trade.action }} - {{ trade.quantity }}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
